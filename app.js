@@ -1,32 +1,79 @@
-console.log('hello node')
-const inquirer = require('inquirer');
-const fs = require('fs');
+console.log("hello node");
 
+const inquirer = require("inquirer");
+const util = require("util");
+const fs = require("fs");
 
+const readmeQuestions = () => {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "enter name",
 
-//Project Title
-//License, Contributing, Tests, and Questions
-//
+      validate: function (userAnswer) {
+        if (userAnswer === "") {
+          return console.log("Please input user name");
+        }
+        return true;
+      },
+    },
 
+    {
+      type: "input",
+      name: "user",
+      message: "enter link to your github profile",
+    },
 
+    {
+      type: "input",
+      name: "title",
+      message: "Enter Project Title?",
+    },
+    {
+      type: "input",
+      name: "description",
+      message:
+        "Provide a short description explaining the Why(motivation), What(problem solved), and How(build and learnings) of your project?",
+    },
+    {
+      type: "input",
+      name: "contents",
+      message: "Table of Contents (Y/N)?", //how to make this an optional step that can be skipped?
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+      validate: function (userAnswer) {
+        let answer = userAnswer.toUpperCase();
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+        if (answer === "Y") {
+          return console.log("Please input your table contents");
+        }
+        return true;
+      },
+    },
+    {
+      type: "input",
+      name: "install",
+      message:
+        "Provide a step-by-step description of how to get the development environment running.",
+    },
+    {
+      type: "input",
+      name: "usage",
+      message: "Provide instructions and examples for use",
+    },
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+    {
+      type: "input",
+      name: "credits",
+      message:
+        "List collaborators, if any, with links to their GitHub profiles.",
+    },
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
-}
-
-module.exports = generateMarkdown;
+    {
+      type: "list",
+      name: "license",
+      message: "Choose your license for your project.",
+      choices: [],
+    },
+  ]);
+};
