@@ -30,7 +30,7 @@ function renderLicenseLink(license) {
 function generateMarkdown(data) {
   return;
 
-`# ${data.ProjectTitle}
+  `# ${data.ProjectTitle}
 
 ${renderLicenseBadge(data.license)}
 
@@ -38,31 +38,34 @@ ${renderLicenseBadge(data.license)}
 
   ${data.ProjectDescription}
 
-  - 
-  -[Installation](#installation)
-  - [Usage](#usage)
-  - 
-  - 
-  - 
-  - 
+  ## Contents Table
+  - [Installation](#Installation)
+  - [Usage](#|Usage)
+  - [Collaborators](#Collaborators)
+  - [License](#License)
+  - [Author](#Author)
+
+
+## Installation
+${data.Install}
+
+## Usage
+${data.UserInstructions}
+
+
+## Collaborators
+${data.credits}
+
+
+## License
+${renderLicenseBadge(data.license)}
 ${renderLicenseLink(data.license)}
 
-
-  ## Installation
-
-  ${data.Install}
-
-  ## Usage
-
-  ${data.UserInstructions}
-
-
-
-
-
+## Author
+${data.name}
+${data.githubRepo}
 
   `;
-
 }
 
 module.exports = generateMarkdown;
