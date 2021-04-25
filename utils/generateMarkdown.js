@@ -50,11 +50,11 @@ ${renderLicenseLink(data.license)}
 
   ## Installation
 
-  ${data.install}
+  ${data.Install}
 
   ## Usage
 
-  ${data.usage}
+  ${data.UserInstructions}
 
 
 

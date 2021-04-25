@@ -68,14 +68,14 @@ const init = () => {
 
       {
         type: "input",
-        name: "install",
+        name: "Install",
         message:
           "Provide a step-by-step description of how to get the development environment running.",
       },
 
       {
         type: "input",
-        name: "usage",
+        name: "UserInstructions",
         message: "Provide instructions and examples for use",
       },
 
