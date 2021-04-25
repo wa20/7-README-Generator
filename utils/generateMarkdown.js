@@ -22,7 +22,7 @@ function renderLicenseSection(license) {
     if(license === "None"){
         return ""
     }
-    // return [License](#license)
+    return `![Github license]('https://choosealicense.com/licenses/${license}/')`
 
 }
 

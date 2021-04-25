@@ -31,7 +31,7 @@ const init = () => {
       {
         type: "input",
         name: "githubRepo",
-        message: "enter link to your github profile",
+        message: "Enter link to your github profile: ",
         validate: function (userAnswer) {
           if (userAnswer === "") {
             return console.log("Please input link to github profile");
@@ -43,7 +43,7 @@ const init = () => {
       {
         type: "input",
         name: "ProjectTitle",
-        message: "Enter Project Title?",
+        message: "Enter Project Title: ",
         validate: function (userAnswer) {
           if (userAnswer === "") {
             return console.log("Please input Project Title");
@@ -55,8 +55,7 @@ const init = () => {
       {
         type: "input",
         name: "ProjectDescription",
-        message:
-          "Provide a short description explaining the Why(motivation), What(problem solved), and How(build and learnings) of your project?",
+        message: "Provide a short description explaining the Why(motivation), What(problem solved), and How(build and learnings) of your project? ",
       },
 
       // {
@@ -69,14 +68,13 @@ const init = () => {
       {
         type: "input",
         name: "Install",
-        message:
-          "Provide a step-by-step description of how to get the development environment running.",
+        message: "Provide a step-by-step description of how to get the development environment running: ",
       },
 
       {
         type: "input",
         name: "UserInstructions",
-        message: "Provide instructions and examples for use",
+        message: "Provide instructions and examples for use: ",
       },
 
       // {
@@ -88,15 +86,14 @@ const init = () => {
       {
         type: "input",
         name: "credits",
-        message:
-          "List collaborators, if any, with links to their GitHub profiles.",
+        message: "List collaborators, if any, with links to their GitHub profiles: ",
       },
 
       {
         type: "list",
         name: "license",
-        message: "Choose your license for your project.",
-        choices: ["None", "MIT", "Apache-2.0", "Microsoft Public License", "Mozilla Public License 2.0"],
+        message: "Choose your license for your project: ",
+        choices: ["None", "MIT", "Apache-2.0", "GNU AGPLv3", "Mozilla Public License 2.0"],
       },
     ])
     .then((data) => writeToFile("README.md", generateMarkdown(data)));
