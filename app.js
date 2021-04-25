@@ -1,9 +1,11 @@
-console.log("hello node");
+console.log("Create your markdown"); // node intial test
+
 const inquirer = require("inquirer");
 const util = require("util");
 const fs = require("fs");
 const generateReadme = require("./utils/generateMarkdown");
 const generateMarkdown = require("./utils/generateMarkdown");
+
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -17,7 +19,7 @@ const init = () => {
       {
         type: "input",
         name: "name",
-        message: "enter name",
+        message: "Enter your name: ",
         validate: function (userAnswer) {
           if (userAnswer === "") {
             return console.log("Please input user name");
@@ -28,7 +30,7 @@ const init = () => {
 
       {
         type: "input",
-        name: "github",
+        name: "githubRepo",
         message: "enter link to your github profile",
         validate: function (userAnswer) {
           if (userAnswer === "") {
@@ -40,7 +42,7 @@ const init = () => {
 
       {
         type: "input",
-        name: "title",
+        name: "ProjectTitle",
         message: "Enter Project Title?",
         validate: function (userAnswer) {
           if (userAnswer === "") {
@@ -52,17 +54,17 @@ const init = () => {
 
       {
         type: "input",
-        name: "description",
+        name: "ProjectDescription",
         message:
           "Provide a short description explaining the Why(motivation), What(problem solved), and How(build and learnings) of your project?",
       },
 
-      {
-        type: "input",
-        name: "contents",
-        message: "Table of Contents (Y/N)?", //how to make this an optional step that can be skipped?
-        choices: ["Y", "N"],
-      },
+      // {
+      //   type: "input",
+      //   name: "contents",
+      //   message: "Table of Contents (Y/N)?", //how to make this an optional step that can be skipped?
+      //   choices: ["Y", "N"],
+      // },
 
       {
         type: "input",
@@ -94,7 +96,7 @@ const init = () => {
         type: "list",
         name: "license",
         message: "Choose your license for your project.",
-        choices: ["None", "MIT", "Apache-2.0"],
+        choices: ["None", "MIT", "Apache-2.0", "Microsoft Public License", "Mozilla Public License 2.0"],
       },
     ])
     .then((data) => writeToFile("README.md", generateMarkdown(data)));
