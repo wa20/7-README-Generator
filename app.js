@@ -1,7 +1,7 @@
 console.log("hello node");
 
 const inquirer = require("inquirer");
-const util = require("util");
+// const util = require("util");
 const fs = require("fs");
 
 const readmeQuestions = () => {
@@ -10,7 +10,6 @@ const readmeQuestions = () => {
       type: "input",
       name: "name",
       message: "enter name",
-
       validate: function (userAnswer) {
         if (userAnswer === "") {
           return console.log("Please input user name");
@@ -21,21 +20,35 @@ const readmeQuestions = () => {
 
     {
       type: "input",
-      name: "user",
+      name: "github",
       message: "enter link to your github profile",
+      validate: function (userAnswer) {
+        if (userAnswer === "") {
+          return console.log("Please input link to github profile");
+        }
+        return true;
+      },
     },
 
     {
       type: "input",
       name: "title",
       message: "Enter Project Title?",
-    },
+      validate: function (userAnswer) {
+        if (userAnswer === "") {
+          return console.log("Please input Project Title");
+        }
+        return true;
+      },
+    }, 
+
     {
       type: "input",
       name: "description",
       message:
         "Provide a short description explaining the Why(motivation), What(problem solved), and How(build and learnings) of your project?",
     },
+
     {
       type: "input",
       name: "contents",
@@ -50,12 +63,14 @@ const readmeQuestions = () => {
         return true;
       },
     },
+
     {
       type: "input",
       name: "install",
       message:
         "Provide a step-by-step description of how to get the development environment running.",
     },
+
     {
       type: "input",
       name: "usage",
@@ -75,5 +90,9 @@ const readmeQuestions = () => {
       message: "Choose your license for your project.",
       choices: [],
     },
-  ]);
-};
+  ]); //questions closing braces
+
+
+
+
+}; 
