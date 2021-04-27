@@ -1,20 +1,25 @@
 console.log("Create your markdown"); // node intial test
 
+const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
-const fs = require("fs");
+
 // const generateReadme = require("./utils/generateMarkdown");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
+
 const writeToFile = (fileName, data) => {
   writeFileAsync(fileName, data);
 };
 
+
+
 const readmeGenerator = () => {
-  inquirer.prompt([
+  inquirer
+    .prompt([
       {
         type: "input",
         name: "name",
@@ -94,7 +99,9 @@ const readmeGenerator = () => {
         message: "Choose your license for your project: ",
         choices: ["None", "MIT", "Apache-2.0", "GNU AGPLv3", "Mozilla Public License 2.0"],
       },
-    ]).then((data) => writeToFile("README.md", generateMarkdown(data)))
+    ])
+    .then((data) => { writeToFile('README.md', generateMarkdown(data))
+    });
 };
 
 readmeGenerator();

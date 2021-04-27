@@ -1,3 +1,5 @@
+
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -63,9 +65,9 @@ ${renderLicenseLink(data.license)}
 
 ## Author
 ${data.name}
-${data.githubRepo}
+Find the repo for this on: ${data.githubRepo}
 
-  `;
+ `;
 }
 
 module.exports = generateMarkdown;
