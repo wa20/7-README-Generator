@@ -60,12 +60,13 @@ ${data.credits}
 
 
 ## License
-${renderLicenseBadge(data.license)}
-${renderLicenseLink(data.license)}
+- ${renderLicenseBadge(data.license)}
+- ${renderLicenseLink(data.license)}
+- ${renderLicenseSection(data.license)}
 
 ## Author
-${data.name}
-Find the repo for this on: ${data.githubRepo}
+- ${data.name}
+- Find the repo for this on: ${data.githubRepo}
 
  `;
 }
