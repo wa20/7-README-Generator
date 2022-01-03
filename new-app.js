@@ -6,7 +6,6 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 
 // create writeFile function using promises instead of a callback function
-const writeFileSync = util.promisify(fs.writeFile);
 
 
 const questions = [
@@ -106,6 +105,8 @@ const questions = [
     },
  
 ];
+
+const writeFileSync = util.promisify(fs.writeFile);
 
 // Function to write README file using the user input
 const writeToFile = (fileName, data) => {
